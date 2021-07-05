@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">aop-part1-chapter02</string>
     <string name="good">good</string>
+    <string name="good3">good3</string>
 </resources>
