@@ -2,8 +2,10 @@ package com.example.aop_part1_chapter02
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
+import android.widget.Toast
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -13,5 +15,21 @@ class MainActivity : AppCompatActivity() {
         val heightEditText: EditText = findViewById(R.id.heightEditText)
         val weightEditText = findViewById<EditText>(R.id.weightEditText)
         val resultButton = findViewById<Button>(R.id.resultButton)
+
+        resultButton.setOnClickListener {
+            Log.d("MainActivity", "ResultButton이 출력이 되었습니다.")
+
+            if(heightEditText.text.isEmpty() || weightEditText.text.isEmpty()){
+                Toast.makeText(this,"빈 값이 있습니다.", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            //이 아래로는 절대 빈 값이 올 수 없음.
+
+            val height: Int = heightEditText.text.toString().toInt()
+            val weight: Int = weightEditText.text.toString().toInt()
+
+            Log.d("MainActivity", "height : $height  weight: $weight")
+        }
     }
 }
