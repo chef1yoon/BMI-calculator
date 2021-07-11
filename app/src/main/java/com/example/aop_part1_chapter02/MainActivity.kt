@@ -1,5 +1,6 @@
 package com.example.aop_part1_chapter02
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -29,7 +30,9 @@ class MainActivity : AppCompatActivity() {
             val height: Int = heightEditText.text.toString().toInt()
             val weight: Int = weightEditText.text.toString().toInt()
 
-            Log.d("MainActivity", "height : $height  weight: $weight")
+
+            val intent = Intent(this, ResultActivity::class.java)
+            startActivity(intent)
         }
     }
 }
